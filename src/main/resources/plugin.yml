@@ -1,0 +1,9 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: regulad
+
+main: ${project.groupId}.${project.name}.${project.name}
+api-version: 1.17
+libraries:
+  - org.jetbrains:annotations:22.0.0
