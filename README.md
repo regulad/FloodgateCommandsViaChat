@@ -1,3 +1,5 @@
-# BukkitTemplate
+# FloodgateCommandsViaChat
 
-A quick template for making shitty plugins.
+Allows GeyserMC players unable to send commands due to being eligible to earn achievements to send commands by sending them in chat prefixed with a known string.
+
+Supports SpigotMC 1.17+

@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: BukkitTemplate # TODO: Change this when ready.
+          name: FloodgateCommandsViaChat # TODO: Change this when ready.
           path: target/*.jar
       - name: Publish package
         if: startsWith(github.ref, 'refs/tags/')

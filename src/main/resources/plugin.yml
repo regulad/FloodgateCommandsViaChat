@@ -1,9 +1,11 @@
-name: ${project.name}
+name: FloodgateCommandsViaChat
 version: ${project.version}
 description: ${project.description}
 author: regulad
 
-main: ${project.groupId}.${project.name}.${project.name}
+main: xyz.regulad.floodgatecommandsviachat.FloodgateCommandsViaChat
 api-version: 1.17
+depend:
+  - floodgate
 libraries:
   - org.jetbrains:annotations:22.0.0
