@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>xyz.regulad</groupId>
     <artifactId>floodgatecommandsviachat</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>FloodgateCommandsViaChat</name>
     <developers>
@@ -24,6 +24,12 @@
     <scm>
         <url>https://github.com/regulad/${project.name}.git</url>
     </scm>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-snapshots</id>
+            <url>https://repository.apache.org/content/repositories/snapshots/</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <defaultGoal>clean package</defaultGoal>
         <resources>
@@ -38,7 +44,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>16</release>
+                    <release>16</release> <!-- TODO: Change this to what you may need. -->
                 </configuration>
             </plugin>
             <plugin>
@@ -50,6 +56,41 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0-SNAPSHOT</version>
+                <configuration>
+                    <minimizeJar>true</minimizeJar>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.bstats</pattern>
+                            <shadedPattern>${project.groupId}.${project.artifactId}.dep.org.bstats</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -96,7 +137,7 @@
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
             <version>2.2.1</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

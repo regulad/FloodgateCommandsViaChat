@@ -8,5 +8,4 @@ api-version: 1.17
 depend:
   - floodgate
 libraries:
-  - org.jetbrains:annotations:23.0.0
-  - org.bstats:bstats-bukkit:2.2.1
+  - org.jetbrains:annotations:22.0.0
