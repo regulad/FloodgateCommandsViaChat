@@ -3,7 +3,6 @@ version: ${project.version}
 description: ${project.description}
 author: regulad
 
-main: xyz.regulad.floodgatecommandsviachat.spigot.FloodgateCommandsViaChat
-api-version: 1.17
+main: xyz.regulad.floodgatecommandsviachat.bungee.FloodgateCommandsViaChat
 depend:
   - floodgate
